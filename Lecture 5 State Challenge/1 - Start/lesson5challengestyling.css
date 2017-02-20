@@ -62,3 +62,7 @@ body {
 .btn.purple-btn:hover {
   background-color: #B573D0;
 }
+.btn.red-btn {
+  background-color: #a00518;
+  
+}

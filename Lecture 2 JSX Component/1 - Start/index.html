@@ -3,12 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <title>React tutorial</title>
-    <script src="https://fb.me/react-0.14.7.js"></script>
-    <script src="https://fb.me/react-dom-0.14.7.js"></script>
+    <!-- <script src="https://fb.me/react-0.14.7.js"></script>
+    <script src="https://fb.me/react-dom-0.14.7.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
   </head>
   <body>
+    <div id="ex">React Properties</div>
     <div id="app"></div>
-    <script>
+    <!-- React.createElement takes 3 arguments (HTMLTAG, "Properties" passed into element, inner HTML or another React Element)-->
+    <script type="text/babel"> //Properties
+    // var SecondComponent = React.createClass({
+    //   render: function(){
+    //     console.log(this);
+    //     return(
+    //       <div>
+    //       <h1>This is our Second Component{this.props.name}</h1>
+    //       <h2>pass as many {this.props.saying}</h2>
+    //       </div>
+    //     )
+    //   }
+    // });
+    // ReactDOM.render(
+    //   <SecondComponent name="and a property displayed here!" saying="properties as you like."/>, // <- passing property of name to be displayed with Component
+    //   document.getElementById('app')
+    // );
+
+
+// With ES6 let
+    var SecondComponent = React.createClass({
+    //Declare PropTypes here or below
+      // Validate property types
+      // propTypes: {
+      //   name: React.PropTypes.string,
+      //   saying: React.PropTypes.string.isRequired
+      // },
+      //Set default Props
+          getDefaultProps: function() {
+            return {
+              name: 'Jason',
+              saying: 'Whats Up'
+            }
+          },
+      render: function(){
+        let name = this.props.name;
+        let saying = this.props.saying;
+        return(
+          <div>
+          <h1>This is our Second Component{name}</h1>
+          <h2>pass as many {saying}</h2>
+          </div>
+        )
+      }
+    });
+  //Declare PropTypes here instead. Your choice.
+    SecondComponent.propTypes ={
+        name: React.PropTypes.string.isRequired,
+        saying: React.PropTypes.string.isRequired
+      },
+
+
+    ReactDOM.render(
+      <SecondComponent name="and a property displayed here!" saying="properties as you like."/>, // <- passing property of name to be displayed with Component
+      document.getElementById('app')
+    );
+
+
     </script>
   </body>
 </html>
