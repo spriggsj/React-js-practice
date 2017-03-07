@@ -26,6 +26,24 @@ body {
   color: #FFF;
   font-weight: bold;
 }
+.btn.red-btn {
+  background-color: red;
+  box-shadow: 0px 5px 0px 0px #de3127
+}
+
+.btn.red-btn:hover {
+   background-color: #de3127
+}
+
+.btn.red-btn {
+  background-color: #de3127
+  box-shadow: 0px 5px 0px 0px red;
+}
+
+.btn.red-btn:hover {
+   background-color: #de3127
+}
+
 
 .btn.blue-btn {
   background-color: #55acee;
