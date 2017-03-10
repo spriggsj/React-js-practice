@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React tutorial</title>
+    <!-- <script src="https://fb.me/react-0.14.7.js"></script>
+    <script src="https://fb.me/react-dom-0.14.7.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+  </head>
+  <body>
+    <h1><a href="https://github.com/facebook/react/wiki/sites-using-react">Sites using react</a></h1>
+    <div id="app"></div>
+    <div id="babelJSXExample"></div>
+    <div id="compClass"></div>
+    <!-- Using the ReactDOM Library the .render method takes two arguments (React element & Dom element container)
+  React.createElement takes 3 arguments (HTMLTAG, Properties passed into element, inner HTML or another React Element)-->
+    <script>
+      ReactDOM.render(
+        React.createElement(
+          'h1',
+          null,
+          'Hello World'
+        ),
+        document.getElementById('app')
+      );
+
+    </script>
+
+    <script type="text/babel"> // <- must tell React to use babel here!
+    // JSX is a Javascript syntax extension written by Facebook (transforms into reqular js) in order to use JSX
+    // you must use the babel library. Go to cndjs.com (https://cdnjs.com/libraries/babel-core/5.8.2)
+    // for testing http://babeljs.io/
+
+    // First tow examples use react elements
+
+    ReactDOM.render(
+      <h1>This is written using jsx  </h1>,
+      document.getElementById('babelJSXExample')
+    );
+
+    // ReactDOM.render(
+    //   <h1>Hello world, this is written is JSX!</h1>,
+    //   document.getElementById('app')
+    // );
+
+    </script>
+    <script type="text/babel">
+    // Writing React components ()
+    // components must be named (var FirstComponent = React.createClass()) <-React library createClass function
+    // createClass function takes one argument (object specification{})
+    var FirstComponent = React.createClass({
+      render: function(){
+        return(
+          <h1>This is our first Component</h1>
+        )
+      }
+    });
+    ReactDOM.render(
+      <FirstComponent />,
+      document.getElementById('compClass')
+    );
+
+    // React cannot render more then one element at the same level so you will have to contain them like this:
+    // return(
+    //   <div>
+    //     <h1>This is our first Element</h1>
+    //     <h2>Second element also wrapped within the div tag</h2>
+    //   </div>
+    // )
+
+
+    // Global Scope allows variable to be accessed from inside and outside of function
+    var a = 10;
+    function logA(){
+      console.log(a);
+    }
+      logA();
+      console.log(a);
+    // Function Scope only allows variable to be accessed from within the function
+    function logB(){
+      var b = 100;
+      console.log(b);
+    }
+      logB();
+      // console.log(b);  <- Uncaught ReferenceError: b is not defined
+
+    // Javascript Doesn't have block Scope and will display hoisting
+    // 99 will never display only 100. 99 could be set as undefined and still render 100
+    var c = 99;
+    if(true){
+      var c = 100;
+      console.log(c);
+    }
+    console.log(c);
+
+
+    // Block scope with es6 let
+
+    if(true){
+      let d = 1000;
+      console.log(d); // 1000
+    }
+    console.log(d); //  Uncaught ReferenceError: d is not defined
+
+    </script>
+
+  </body>
+</html>

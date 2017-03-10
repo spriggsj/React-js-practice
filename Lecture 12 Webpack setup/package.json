@@ -1,12 +1,12 @@
 {
   "name": "react-from-the-ground-up-setup",
   "version": "1.0.0",
-  "description": "",
+  "description": "First Webkit React Project",
   "main": "index.js",
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
-  "author": "CodeWithTim",
+  "author": "Jason Spriggs",
   "license": "ISC",
   "dependencies": {
     "babel-core": "6.8.0",
